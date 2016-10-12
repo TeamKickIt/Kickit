@@ -42,9 +42,9 @@ namespace Kickit.Controllers
             {
                 var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
                 var message = new MailMessage();
-                message.To.Add(new MailAddress("athikumar72@gmail.com")); //replace with valid value
+                message.To.Add(new MailAddress("hemphife@gmail.com")); //replace with valid value
                 message.Subject = "Your email subject";
-                message.Body = string.Format(body, model.FromName, model.FromEmail, model.Message,model.Date,model.Time);
+                message.Body = string.Format(body, model.FromName, model.FromEmail, model.Message);
                 message.IsBodyHtml = true;
                 using (var smtp = new SmtpClient())
                 {

@@ -1,13 +1,13 @@
 ﻿@model Kickit.Models.EmailFormModel
 @{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "KickIt!";
 }
 <h2>@ViewBag.Title.</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <h4>Send your comments.</h4>
+    <h4>Who would you like to KickIt! with?</h4>
     <hr />
     <div class="form-group">
         @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" class="btn btn-default" value="Send" />
+                            <input type="submit" class="btn btn-default" value="Let's KickIt'" />
                         </div>
                     </div>
                     }
