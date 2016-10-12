@@ -7,8 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Kickit.Models
 {
     public class EmailFormModel
-    {
-        
+    {        
        [Required, Display(Name = "Who are you?")]
        public string FromName { get; set; }
        [Required, Display(Name = "Whats your email"), EmailAddress]
@@ -19,10 +18,10 @@ namespace Kickit.Models
         public string ReceiverEmail { get; set; }
         [Required  Display(Name = "Enter Date"),]
         public string Date { get; set; }
-        [Required  Display(Name = "Enter Time"),]
-        public string Time { get; set; }
+       // [Required  Display(Name = "Enter Time"),]
+       // public string Time { get; set; }
         [Required]
-            public string Message { get; set; }
+        public string Message { get; set; }
         
     }
 }
