@@ -1,51 +1,81 @@
-﻿@model Kickit.Models.EmailFormModel
+﻿@model Kickit.Models.Invitor
 @{
-    ViewBag.Title = "";
+    ViewBag.Title = "KickIt!";
 }
 <h2>@ViewBag.Title.</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    <h4>Who would you like to KickIt! with?</h4>
     <hr />
     <div class="form-group">
-        @Html.LabelFor(m => m.FromName)
-        @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.FromName)
+        @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FromName)
+        </div>
     </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.FromEmail)
+    <div class="form-group">
+        @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
             @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.FromEmail)
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.ReceiverName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ReceiverName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
             @Html.TextBoxFor(m => m.ReceiverName, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.ReceiverName)
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.ReceiverEmail)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ReceiverEmail, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
             @Html.TextBoxFor(m => m.ReceiverEmail, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.ReceiverEmail)
         </div>
-        <div>
-            What days and time you are available?(Next week)
-        </div>
+    </div>
+    <div>
+        What days and time you are available?(Next week)
+    </div>
+    <div>
+        Date                           Time</div >
+
+
         <div class="form-group">
-            @Html.LabelFor(m => m.Date)
-            @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
+            @Html.LabelFor(m => m.DateTime1, new { @class = "col-md-2 control-label" })
+             <div class="col-md-10">
+                @Html.TextBoxFor(m => m.DateTime1, new { @class = "form-control" })
 
-            @Html.ValidationMessageFor(m => m.Date)
-        </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Message)
-                @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Message)
+                @Html.ValidationMessageFor(m => m.DateTime1)
             </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.DateTime2 ,new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.DateTime2, new { @class = "form-control" })
 
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" class="btn btn-default" value="Let's KickIt!" />
-                            </div>
+                    @Html.ValidationMessageFor(m => m.DateTime2)
+                </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.DateTime3, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.DateTime3, new { @class = "form-control" })
+
+                        @Html.ValidationMessageFor(m => m.DateTime3)
+                    </div>
+                </div>   
+           
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-default" value="Let's KickIt'" />
                         </div>
-}
+                    </div>
+
+
+                    }
+
+

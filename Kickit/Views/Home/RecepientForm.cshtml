@@ -1,5 +1,5 @@
 ﻿
-    @model Kickit.Models.EmailFormModel
+    @model Kickit.Models.RecepientModel
 
 @{
     ViewBag.Title = "RecepientForm";
@@ -18,7 +18,7 @@
     @Html.RadioButtonFor(x => x.Date2, "Date2", false)@Html.Label("Option 2")
     @Html.RadioButtonFor(x => x.Date3, "Date3", false)@Html.Label("Option 3")
     @Html.RadioButtonFor(x => x.unavailable, "Unavailable", false)@Html.Label("Unavailable")
-    <p>Where? @Html.TextBoxFor(x => x.ZipCode)</p>
+    
     <input type="submit" value="KickIt" />
 
 
