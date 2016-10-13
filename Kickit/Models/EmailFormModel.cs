@@ -22,6 +22,7 @@ namespace Kickit.Models
        // public string Time { get; set; }
         [Required]
         public string Message { get; set; }
-        
+        [Required(ErrorMessage = "Please enter your zipcode")]
+        public float ZipCode { get; set; }
     }
 }

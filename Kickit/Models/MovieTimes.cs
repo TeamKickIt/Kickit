@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Kickit.Models
 {
-    public class RecepientFormModel
+    public class MovieTimes
     {
         
         public string RecepientName { get; set; }
