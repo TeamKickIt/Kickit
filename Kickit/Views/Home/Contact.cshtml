@@ -1,4 +1,4 @@
-﻿@model Kickit.Models.EmailFormModel
+﻿@model Kickit.Models.Invitor
 @{
     ViewBag.Title = "KickIt!";
 }
@@ -45,25 +45,37 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(m => m.Date, new { @class = "col-md-2 control-label" })
+            @Html.LabelFor(m => m.DateTime1, new { @class = "col-md-2 control-label" })
              <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.DateTime1, new { @class = "form-control" })
 
-                @Html.ValidationMessageFor(m => m.Date)
+                @Html.ValidationMessageFor(m => m.DateTime1)
             </div>
-         </div>   
+            </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label" })
+                @Html.LabelFor(m => m.DateTime2 ,new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
-                     @Html.ValidationMessageFor(m => m.Message)
-                        </div>
+                    @Html.TextBoxFor(m => m.DateTime2, new { @class = "form-control" })
+
+                    @Html.ValidationMessageFor(m => m.DateTime2)
+                </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.DateTime3, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.DateTime3, new { @class = "form-control" })
+
+                        @Html.ValidationMessageFor(m => m.DateTime3)
                     </div>
+                </div>   
+           
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" class="btn btn-default" value="Let's KickIt'" />
                         </div>
                     </div>
+
+
                     }
 
 
