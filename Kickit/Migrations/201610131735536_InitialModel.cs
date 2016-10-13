@@ -8,6 +8,21 @@ namespace Kickit.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Invitors",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        FromName = c.String(nullable: false),
+                        FromEmail = c.String(nullable: false),
+                        ReceiverName = c.String(nullable: false),
+                        ReceiverEmail = c.String(nullable: false),
+                        DateTime1 = c.String(nullable: false),
+                        DateTime2 = c.String(nullable: false),
+                        DateTime3 = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -94,6 +109,7 @@ namespace Kickit.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Invitors");
         }
     }
 }
