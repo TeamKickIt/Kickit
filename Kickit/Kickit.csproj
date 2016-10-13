@@ -275,6 +275,7 @@
     <Content Include="Views\Home\Movie.cshtml" />
     <Content Include="Views\Home\RecepientForm.cshtml" />
     <Content Include="Views\Home\Thanks.cshtml" />
+    <Content Include="Views\Home\Sorry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

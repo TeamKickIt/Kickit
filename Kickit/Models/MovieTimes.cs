@@ -9,7 +9,7 @@ namespace Kickit.Models
     public class MovieTimes
     {
         
-        public string RecepientName { get; set; }
+        /*public string RecepientName { get; set; }
 
         
         public string SenderName { get; set; }
@@ -24,7 +24,7 @@ namespace Kickit.Models
         [Required(ErrorMessage = "Please enter your zipcode")]
         public float ZipCode { get; set; }
 
-        
+        */
 
     }
 }

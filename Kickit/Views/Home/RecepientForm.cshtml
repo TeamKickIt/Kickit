@@ -10,11 +10,16 @@
 @using (Html.BeginForm())
 {   @Html.ValidationSummary();
 
-    <p>Hey @Model.ReceiverName, @Model.FromName wants to KickIt!</p> //think need different code to pull names
+    <p>Hey @Model.ReceiverName, @Model.FromName wants to KickIt!</p> 
 <p>@Model.FromName is available to KickIt on: (Select a time)</p>
-    <p>dates</p>
+    <p>dates --pull from database?? need times</p>
+    @Html.RadioButtonFor(x => x.Date, "Date1", false)
+    @Html.Label("Option 1")
+    @Html.RadioButtonFor(x => x.Date2, "Date2", false)@Html.Label("Option 2")
+    @Html.RadioButtonFor(x => x.Date3, "Date3", false)@Html.Label("Option 3")
+    @Html.RadioButtonFor(x => x.unavailable, "Unavailable", false)@Html.Label("Unavailable")
     <p>Where? @Html.TextBoxFor(x => x.ZipCode)</p>
-    <input type="submit" value="Submit to KickIt" />
+    <input type="submit" value="KickIt" />
 
 
 
