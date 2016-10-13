@@ -43,7 +43,7 @@ namespace Kickit.Controllers
                 EmailFormModel email = new EmailFormModel();
                 var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
                 var message = new MailMessage();
-                
+
                 message.To.Add(new MailAddress(model.ReceiverEmail)); //replace with valid value
                 message.Subject = "Your email subject";
                 message.Body = string.Format(body, model.FromName, model.FromEmail, model.Message);
@@ -59,6 +59,26 @@ namespace Kickit.Controllers
         public ActionResult Sent()
         {
             return View();
+        }
+
+
+        [HttpGet]
+        public ViewResult RecepientForm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult RecepientForm(MovieTimes movietimes)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("Thanks", movietimes);
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

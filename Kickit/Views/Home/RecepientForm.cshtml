@@ -1,0 +1,32 @@
+﻿
+    @model Kickit.Models.EmailFormModel
+
+@{
+    ViewBag.Title = "RecepientForm";
+}
+
+<h2>RecepientForm</h2>
+<body>
+@using (Html.BeginForm())
+{   @Html.ValidationSummary();
+
+    <p>Hey @Model.ReceiverName, @Model.FromName wants to KickIt!</p> //think need different code to pull names
+<p>@Model.FromName is available to KickIt on: (Select a time)</p>
+    <p>dates</p>
+    <p>Where? @Html.TextBoxFor(x => x.ZipCode)</p>
+    <input type="submit" value="Submit to KickIt" />
+
+
+
+
+
+
+
+
+}
+
+
+
+
+</body>
+
