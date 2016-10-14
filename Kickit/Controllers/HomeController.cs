@@ -64,15 +64,21 @@ namespace Kickit.Controllers
         [HttpGet]
         public ViewResult RecepientForm()
         {
+           
             return View();
         }
 
         [HttpPost]
-        public ViewResult RecepientForm(MovieTimes movietimes)
+        public ViewResult RecepientForm(InvitorRecepientModel responsemodel)
         {
+            bool Option1 = responsemodel.recepientform.DateTime1;
+            bool Option2 = responsemodel.recepientform.DateTime2;
+            bool Option3 = responsemodel.recepientform.DateTime3;
+
+
             if (ModelState.IsValid)
             {
-                return View("Thanks", movietimes);
+                return View("Thanks", responsemodel);
             }
             else
             {
