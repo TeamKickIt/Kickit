@@ -31,7 +31,7 @@ namespace Kickit.Models
 
         public string DateTime3 { get; set; }
 
-        public byte RecipientFormId { get; set; }
+      
 
         
        // [Required(ErrorMessage = "Please enter your zipcode")]

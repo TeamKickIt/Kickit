@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201610141507224_DeleteLineFromInvitorModel.Designer.cs">
       <DependentUpon>201610141507224_DeleteLineFromInvitorModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610141928092_RemoveForeignKey.cs" />
+    <Compile Include="Migrations\201610141928092_RemoveForeignKey.Designer.cs">
+      <DependentUpon>201610141928092_RemoveForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Invitor.cs" />
@@ -246,6 +250,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\Kickitapp.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -327,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610141507224_DeleteLineFromInvitorModel.resx">
       <DependentUpon>201610141507224_DeleteLineFromInvitorModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610141928092_RemoveForeignKey.resx">
+      <DependentUpon>201610141928092_RemoveForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

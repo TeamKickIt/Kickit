@@ -27,11 +27,12 @@ namespace Kickit.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Contact([Bind (Include = "Id, FromName, FromEmail, ReceiverName, ReceiverEmail, DateTime1, DateTime2, DateTime3, RecipientFormId")]Invitor invitor)
+        public async Task<ActionResult> Contact([Bind (Include = "FromName, FromEmail, ReceiverName, ReceiverEmail, DateTime1, DateTime2, DateTime3")]Invitor invitor)
         {
             if (ModelState.IsValid)
             {
                 ApplicationDbContext dbContext = new ApplicationDbContext();
+
                 dbContext.Invitors.Add(invitor);
                 dbContext.SaveChanges();
 
