@@ -23,6 +23,17 @@ namespace Kickit.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.RecepientForms",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        DateTime1 = c.Boolean(nullable: false),
+                        DateTime2 = c.Boolean(nullable: false),
+                        DateTime3 = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -109,6 +120,7 @@ namespace Kickit.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.RecepientForms");
             DropTable("dbo.Invitors");
         }
     }

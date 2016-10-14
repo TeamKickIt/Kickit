@@ -21,6 +21,7 @@ namespace Kickit.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Invitor> Invitors { get; set; }
+        public DbSet<RecepientForm> RecepientForms { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

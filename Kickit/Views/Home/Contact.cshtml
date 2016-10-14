@@ -4,7 +4,7 @@
 }
 <h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("NewFormInDb", "Home"))
 {
     @Html.AntiForgeryToken()
     <h4>Who would you like to KickIt! with?</h4>

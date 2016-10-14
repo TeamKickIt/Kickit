@@ -12,11 +12,20 @@ namespace Kickit.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private ApplicationDbContext _context;
+
+        public HomeController()
         {
-            return View();
+            _context = new ApplicationDbContext();
         }
-        public ActionResult Movie()
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+        [HttpPost]
+        public ActionResult NewFormInDb(Invitor invitor)
         {
             return View();
         }
