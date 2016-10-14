@@ -31,8 +31,6 @@ namespace Kickit.Models
 
         public string DateTime3 { get; set; }
 
-        public RecepientForm RecipientForm { get; set; }
-
         public byte RecipientFormId { get; set; }
 
         

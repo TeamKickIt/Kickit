@@ -12,24 +12,7 @@ namespace Kickit.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext _context;
-
-        public HomeController()
-        {
-            _context = new ApplicationDbContext();
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            _context.Dispose();
-        }
-
-        [HttpPost]
-        public ActionResult NewFormInDb(Invitor invitor)
-        {
-            return View();
-        }
-
+      
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -39,23 +22,26 @@ namespace Kickit.Controllers
         [HttpGet]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Contact(Invitor model)
+        public async Task<ActionResult> Contact([Bind (Include = "Id, FromName, FromEmail, ReceiverName, ReceiverEmail, DateTime1, DateTime2, DateTime3, RecipientFormId")]Invitor invitor)
         {
             if (ModelState.IsValid)
             {
+                ApplicationDbContext dbContext = new ApplicationDbContext();
+                dbContext.Invitors.Add(invitor);
+                dbContext.SaveChanges();
+
                 Invitor email = new Invitor();
                 var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
                 var message = new MailMessage();
 
-                message.To.Add(new MailAddress(model.ReceiverEmail)); //replace with valid value
+                message.To.Add(new MailAddress(invitor.ReceiverEmail)); //replace with valid value
                 message.Subject = "Your email subject";
-                message.Body = string.Format(body, model.FromName, model.FromEmail, "http://localhost:50941/Home/Contact");// model.Message);
+                message.Body = string.Format(body, invitor.FromName, invitor.FromEmail, "http://localhost:50941/Home/Contact");// model.Message);
                 message.IsBodyHtml = true;
                 using (var smtp = new SmtpClient())
                 {
@@ -64,8 +50,11 @@ namespace Kickit.Controllers
                     return RedirectToAction("Sent");
                 }
             }
-            return View(model);
+            return View(invitor);
         }
+
+
+
         public ActionResult Sent()
         {
             return View();
