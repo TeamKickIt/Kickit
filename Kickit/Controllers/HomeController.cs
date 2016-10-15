@@ -33,7 +33,7 @@ namespace Kickit.Controllers
             {
                 ApplicationDbContext dbContext = new ApplicationDbContext();
 
-                dbContext.Invitors.Add(invitor);
+                Invitor invite=dbContext.Invitors.Add(invitor);
                 dbContext.SaveChanges();
 
                 Invitor email = new Invitor();
@@ -42,11 +42,11 @@ namespace Kickit.Controllers
 
                 message.To.Add(new MailAddress(invitor.ReceiverEmail)); //replace with valid value
                 message.Subject = "Your email subject";
-                message.Body = string.Format(body, invitor.FromName, invitor.FromEmail, "http://localhost:50941/Home/Contact");// model.Message);
+                message.Body = string.Format(body, invitor.FromName, invitor.FromEmail, "http://kickitapp.azurewebsites.net/Home/RecepientForm/" + invite.Id);
                 message.IsBodyHtml = true;
                 using (var smtp = new SmtpClient())
                 {
-                     
+
                     await smtp.SendMailAsync(message);
                     return RedirectToAction("Sent");
                 }
@@ -62,10 +62,11 @@ namespace Kickit.Controllers
         }
 
 
+        // GET /RecepientForm/17
         [HttpGet]
-        public ViewResult RecepientForm()
+        public ViewResult RecepientForm(int invite)
         {
-           
+           //fill in what needs to display on form
             return View();
         }
 
