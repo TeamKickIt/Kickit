@@ -7,6 +7,8 @@ using Kickit.Models;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace Kickit.Controllers
 {
@@ -24,37 +26,44 @@ namespace Kickit.Controllers
         {
             return View();
         }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Contact([Bind (Include = "FromName, FromEmail, ReceiverName, ReceiverEmail, DateTime1, DateTime2, DateTime3")]Invitor invitor)
+        public ActionResult Contact([Bind(Include = "FromName, FromEmail, ReceiverName, ReceiverEmail, DateTime1, DateTime2, DateTime3")]Invitor invitor)
         {
+
+           // SendSimpleMessage(invitor);
             if (ModelState.IsValid)
             {
-                ApplicationDbContext dbContext = new ApplicationDbContext();
+                SendSimpleMessage(invitor);
+              }
+        
+            return View("Sent",invitor);
+        }
 
-                dbContext.Invitors.Add(invitor);
-                dbContext.SaveChanges();
+        public static IRestResponse SendSimpleMessage(Invitor invitor)
+        {
+           
 
-                Invitor email = new Invitor();
-                var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
-                var message = new MailMessage();
-
-                message.To.Add(new MailAddress(invitor.ReceiverEmail)); //replace with valid value
-                message.Subject = "Your email subject";
-                message.Body = string.Format(body, invitor.FromName, invitor.FromEmail, "http://localhost:50941/Home/Contact");// model.Message);
-                message.IsBodyHtml = true;
-                using (var smtp = new SmtpClient())
-                {
-                     
-                    await smtp.SendMailAsync(message);
-                    return RedirectToAction("Sent");
-                }
-            }
-            return View(invitor);
+            RestClient client = new RestClient();
+            client.BaseUrl = new Uri("https://api.mailgun.net/v3");
+            client.Authenticator =
+                   new HttpBasicAuthenticator("api",
+                                              "key-f8c4d4300117a2840bbfac000f5bed93");
+            RestRequest request = new RestRequest();
+            request.AddParameter("domain",
+                                "postmaster@sandbox525b6e75dca34f5cb690b927e0bdf28b.mailgun.org", ParameterType.UrlSegment);
+            request.Resource = "{domain}/messages";
+            //request.AddParameter("from", "Mailgun Sandbox <http://kickitapp.azurewebsites.net>");
+             request.AddParameter("from", "Mailgun Sandbox <postmaster@sandbox525b6e75dca34f5cb690b927e0bdf28b.mailgun.org>");
+            request.AddParameter("to", "Kickit <athikumar72@gmail.com>");            
+            request.AddParameter("subject", $"Hello {invitor.FromName}");
+             request.AddParameter("subject", "Hello Athikumar");
+            request.AddParameter("text", $"Congratulations {invitor.FromName}  invited you .Click on link to reply : http://localhost:50941/Home/RecepeientForm/?{invitor.Id} ");
+            request.Method = Method.POST;
+            return client.Execute(request);
         }
 
 
+      
 
         public ActionResult Sent()
         {

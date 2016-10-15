@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index1";
+	ViewBag.Title = "Index1";
 }
 
 <h2>Index1</h2>
@@ -9,87 +9,87 @@
 
 <head>
 
-    <style type="text/css">
-        .tile {
-            display: inline-block;
-            border: 1px solid grey;
-            background: silver;
-            padding: 4px;
-            text-align: center;
-            font-size: 15px;
-            width: 250px;
-        }
-    </style>
+	<style type="text/css">
+		.tile {
+			display: inline-block;
+			border: 1px solid grey;
+			background: silver;
+			padding: 4px;
+			text-align: center;
+			font-size: 15px;
+			width: 250px;
+		}
+	</style>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 
-    <script>
-
-
-
-	         // construct the url with parameter values
-
-        var apikey = "cusk9xbwajxryjx34qcjzp4z";
-
-	         var baseUrl = "http://data.tmsapi.com/v1.1";
-
-	         var showtimesUrl = baseUrl + '/movies/showings';
-
-	         var zipCode = "48084";
-
-	         var d = new Date();
-
-	         var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
+	<script>
 
 
 
-         $(document).ready(function() {
+			 // construct the url with parameter values
 
+		var apikey = "cusk9xbwajxryjx34qcjzp4z";
 
-	           // send off the query
+			 var baseUrl = "http://data.tmsapi.com/v1.1";
 
-	           $.ajax({
+			 var showtimesUrl = baseUrl + '/movies/showings';
 
-	            url: showtimesUrl,
+			 var zipCode = "48084";
 
-	                data: { startDate: today,
+			 var d = new Date();
 
-	                    zip: zipCode,
-
-	                    jsonp: "dataHandler",
-
-	                    api_key: apikey
-
-                   },
-
-	            dataType: "jsonp",
-
-	           });
-
-	         });
+			 var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
 
 
 
-	         // callback to handle the results
+		 $(document).ready(function() {
 
-	         function dataHandler(data) {
 
-	          $(document.body).append('<p>Found ' + data.length + ' movies showing within 5 miles of ' + zipCode+':</p>');
+			   // send off the query
 
-	          var movies = data.hits;
+			   $.ajax({
 
-	          $.each(data, function(index, movie) {
+				url: showtimesUrl,
 
-	            var movieData = '<div class="tile"><img src="http://developer.tmsimg.com/' + movie.preferredImage.uri + '?api_key='+apikey+'"><br/>';
+					data: { startDate: today,
 
-	            movieData += movie.title;
+						zip: zipCode,
 
-	            if (movie.ratings) { movieData += ' (' + movie.ratings[0].code + ') </div>' };
+						jsonp: "dataHandler",
 
-	            $(document.body).append(movieData);
+						api_key: apikey
 
-	          });
+				   },
 
-	         }
+				dataType: "jsonp",
+
+			   });
+
+			 });
+
+
+
+			 // callback to handle the results
+
+			 function dataHandler(data) {
+
+			  $(document.body).append('<p>Found ' + data.length + ' movies showing within 5 miles of ' + zipCode+':</p>');
+
+			  var movies = data.hits;
+
+			  $.each(data, function(index, movie) {
+
+				var movieData = '<div class="tile"><img src="http://developer.tmsimg.com/' + movie.preferredImage.uri + '?api_key='+apikey+'"><br/>';
+
+				movieData += movie.title;
+
+				if (movie.ratings) { movieData += ' (' + movie.ratings[0].code + ') </div>' };
+
+				$(document.body).append(movieData);
+
+			  });
+
+			 }
 
 
