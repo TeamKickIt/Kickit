@@ -11,13 +11,13 @@
 @using (Html.BeginForm())
 {   @Html.ValidationSummary();
 
-<<<<<<< HEAD
+
     <p>Hey  wants to KickIt!</p> //think need different code to pull names
 <p>is available to KickIt on: (Select a time)</p>
     <p>dates</p>
     
     <input type="submit" value="Submit to KickIt" />
-=======
+
 
 
     <p>Hey @Model.invitor.ReceiverName, @Model.invitor.FromName wants to KickIt!</p> 
@@ -29,7 +29,7 @@
     <p> @Html.RadioButtonFor(x => x.recepientform.DateTime3, "Option 3", false)@Html.LabelFor(x => x.invitor.DateTime3)</p>
 
     <input type="submit" value="KickIt" />
->>>>>>> origin/master
+
 
 
 
