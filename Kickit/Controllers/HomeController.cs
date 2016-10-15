@@ -12,13 +12,13 @@ namespace Kickit.Controllers
 {
     public class HomeController : Controller
     {
-      
-        public ActionResult About()
+        public ViewResult Index()
         {
-            ViewBag.Message = "Your application description page.";
-
+      
             return View();
         }
+
+        //CONTACT VIEW
         [HttpGet]
         public ActionResult Contact()
         {
@@ -27,35 +27,26 @@ namespace Kickit.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Contact([Bind (Include = "FromName, FromEmail, ReceiverName, ReceiverEmail, DateTime1, DateTime2, DateTime3")]Invitor invitor)
+        public ActionResult Contact(
+            [Bind(Include = "FromName, FromEmail, ReceiverName, ReceiverEmail, DateTime1, DateTime2, DateTime3")] Invitor invitor)
         {
             if (ModelState.IsValid)
             {
                 ApplicationDbContext dbContext = new ApplicationDbContext();
 
-                Invitor invite=dbContext.Invitors.Add(invitor);
+                Invitor invite = dbContext.Invitors.Add(invitor);
                 dbContext.SaveChanges();
-
-                Invitor email = new Invitor();
-                var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
-                var message = new MailMessage();
-
-                message.To.Add(new MailAddress(invitor.ReceiverEmail)); //replace with valid value
-                message.Subject = "Your email subject";
-                message.Body = string.Format(body, invitor.FromName, invitor.FromEmail, "http://kickitapp.azurewebsites.net/Home/RecepientForm/" + invite.Id);
-                message.IsBodyHtml = true;
-                using (var smtp = new SmtpClient())
-                {
-
-                    await smtp.SendMailAsync(message);
-                    return RedirectToAction("Sent");
-                }
+                return View("Sent", invitor);
             }
-            return View(invitor);
+            else
+            {
+                // there is a validation error
+                return View();
+            }
         }
 
 
-
+        //View after invite has been sent
         public ActionResult Sent()
         {
             return View();
