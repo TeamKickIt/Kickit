@@ -7,6 +7,8 @@ using Kickit.Models;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace Kickit.Controllers
 {
@@ -33,9 +35,9 @@ namespace Kickit.Controllers
             if (ModelState.IsValid)
             {
                 ApplicationDbContext dbContext = new ApplicationDbContext();
-
-                Invitor invite = dbContext.Invitors.Add(invitor);
+               Invitor invite = dbContext.Invitors.Add(invitor);
                 dbContext.SaveChanges();
+               SendSimpleMessage(invitor);
                 return View("Sent", invitor);
             }
             else
@@ -77,6 +79,26 @@ namespace Kickit.Controllers
             {
                 return View("Sorry");
             }
+        }
+        //Method to call mailgun
+
+        public static IRestResponse SendSimpleMessage(Invitor invitor)
+        {
+            RestClient client = new RestClient();
+            client.BaseUrl = new Uri("https://api.mailgun.net/v3");
+            client.Authenticator =
+                   new HttpBasicAuthenticator("api",
+                                              "key-8b65bd539d243a3e8c4a03a5c16e6f4b");
+            RestRequest request = new RestRequest();
+            request.AddParameter("domain",
+                                "sandbox90b6af4c9c9f40eaa4ba0073541a6975.mailgun.org", ParameterType.UrlSegment);
+            request.Resource = "{domain}/messages";
+            request.AddParameter("from", "Mailgun Sandbox <postmaster@sandbox90b6af4c9c9f40eaa4ba0073541a6975.mailgun.org>");
+            request.AddParameter("to", "Teamkickitapp <teamkickitapp@gmail.com>");// This is receiver mail.can change this mail id after add and activate in mailgun account Receipient mail list 
+            request.AddParameter("subject", "Hello Teamkickitapp");
+            request.AddParameter("text", $"Hi {invitor.ReceiverName} you are invited by {invitor.FromName} .Click this link  to respond  http://kickitapp.azurewebsites.net/Home/RecepientForm/?id=");//This is message sent to receiver
+            request.Method = Method.POST;
+            return client.Execute(request);
         }
     }
 }
