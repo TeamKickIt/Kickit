@@ -66,12 +66,15 @@ namespace Kickit.Controllers
             ApplicationDbContext dbContext = new ApplicationDbContext();
 
             var invitordetail = dbContext.Invitors.SingleOrDefault(i => i.Id == id);
-
-             ViewBag.fromName = invitordetail.FromName;
-             ViewBag.receiverName = invitordetail.ReceiverName;
+           
+           ViewBag.fromName = invitordetail.FromName; //Datas are passed to responseform
+           ViewBag.receiverName = invitordetail.ReceiverName;
+           ViewBag.date1 = invitordetail.DateTime1;
+           ViewBag.date2 = invitordetail.DateTime2;
+           ViewBag.date3 = invitordetail.DateTime3;
 
             //InvitorRecepientModel invitorecipientmodel = new InvitorRecepientModel();
-           
+
 
 
             //fill in what needs to display on form
