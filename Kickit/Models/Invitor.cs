@@ -26,20 +26,14 @@ namespace Kickit.Models
    ErrorMessage = "Please enter a valid email address")]
         public string ReceiverEmail { get; set; }
 
-        [Required(ErrorMessage = "Please enter a date and time"),  Display(Name = "Enter Date"),]
+        [Required(ErrorMessage = "Please enter a date and time"),  Display(Name = "Enter Date and Time"),]
         public string DateTime1 { get; set; }
 
-        [Required(ErrorMessage = "Please enter a date and time"),  Display(Name = "Enter Date"),]
+        [Required(ErrorMessage = "Please enter a date and time"),  Display(Name = "Enter Date and Time"),]
         public string DateTime2 { get; set; }
 
-        [Required(ErrorMessage = "Please enter a date and time"),  Display(Name = "Enter Date"),]
+        [Required(ErrorMessage = "Please enter a date and time"),  Display(Name = "Enter Date and Time"),]
         public string DateTime3 { get; set; }
 
-      
-      
-
-        
-       // [Required(ErrorMessage = "Please enter your zipcode")]
-        //='''''public float ZipCode { get; set; }
     }
 }
