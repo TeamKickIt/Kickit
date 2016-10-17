@@ -8,7 +8,7 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <title>KickIt</title>
-    <style>
+    <style class="text-center">
         .btn a {
             color: white;
             text-decoration: none;
@@ -20,16 +20,24 @@
     </style>
 </head>
 <body>
- 
-<div class="jumbotron text-center ">
-    <h3 class="margin">KickIt</h3>
-</div>
-
-<div class="container-fluid bg-2 text-center">
-    <img class="img-responsive text-center" src="https://static.pexels.com/photos/42389/pexels-photo-42389.jpeg" alt="Chania" width="460" height="345">
-    <div class="btn btn-danger btn-lg">
-        @Html.ActionLink("KickIt", "Contact")
-    </div>
-</div>
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-12">
+            <div class="jumbotron">
+                <h1 class="text-center">KICKiT</h1>
+                <div class="row">
+                    <div class="btn btn-danger btn-lg">
+                        @Html.ActionLink("KickIt", "Contact")
+                    </div>
+                    <div class="col-lg-2 col-md-offset-4 col-md-2 col-sm-offset-3 col-sm-3 col-xs-offset-3 col-xs-3 col-lg-offset-3"> </div>
+                </div>
+                <img src="https://static.pexels.com/photos/42389/pexels-photo-42389.jpeg" alt="" class="img-responsive">
+            </div>
+        </div>
+            
+           
+            </div>
+                </div>
+            
 </body>
 </html>
