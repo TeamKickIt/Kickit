@@ -327,10 +327,16 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\Home\RecepientForm.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Home\Sent.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\Sorry.cshtml" />
     <Content Include="Views\Home\EventBriteAPI.cshtml" />
+=======
+=======
+>>>>>>> parent of 5c4446e... Database Migration
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
