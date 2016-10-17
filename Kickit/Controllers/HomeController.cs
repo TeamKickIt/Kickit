@@ -88,10 +88,11 @@ namespace Kickit.Controllers
             bool Option2 = responsemodel.recepientform.DateTime2;
             bool Option3 = responsemodel.recepientform.DateTime3;
 
-
-            if (ModelState.IsValid)
+            if (Option1||Option2||Option3==true)
+            //if (ModelState.IsValid)
             {
-                return View("Thanks", responsemodel);
+
+                return View("Movie", responsemodel);
             }
             else
             {

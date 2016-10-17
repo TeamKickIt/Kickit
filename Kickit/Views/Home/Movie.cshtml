@@ -1,41 +1,45 @@
 ﻿@{
-    ViewBag.Title = "Index1";
+	ViewBag.Title = "Movies";
 }
 
-<h2>Index1</h2>
 
 
-<html>
 
-<head>
 
-    <style type="text/css">
-        .tile {
-            display: inline-block;
-            border: 1px solid grey;
-            background: silver;
-            padding: 4px;
-            text-align: center;
-            font-size: 15px;
-            width: 250px;
-        }
-    </style>
+    
+    <html>
+    
+    <head>
+        
+        <style type="text/css">
+             .tile {
+                display: inline-block;
+                border: 1px solid grey;
+                background: silver;
+                padding: 4px;
+                text-align: center;
+                font-size: 15px;
+                width: 250px;
+            }
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-
-    <script>
+            
+        </style>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+        
+        <script>
 
 
 
 	         // construct the url with parameter values
 
-        var apikey = "cusk9xbwajxryjx34qcjzp4z";
+            var apikey = "cusk9xbwajxryjx34qcjzp4z";
 
 	         var baseUrl = "http://data.tmsapi.com/v1.1";
 
 	         var showtimesUrl = baseUrl + '/movies/showings';
 
-	         var zipCode = "48084";
+	         var zipCode = "78701";
 
 	         var d = new Date();
 
@@ -43,7 +47,8 @@
 
 
 
-         $(document).ready(function() {
+	         $(document).ready(function() {
+
 
 
 	           // send off the query
@@ -60,7 +65,7 @@
 
 	                    api_key: apikey
 
-                   },
+	                   },
 
 	            dataType: "jsonp",
 
@@ -92,4 +97,15 @@
 
 	         }
 
+
+
+        </script>
+
+    </head>
+
+    <body>
+
+    </body>
+    
+</html>
 
