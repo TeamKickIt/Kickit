@@ -1,3 +1,5 @@
+using System.Data.Entity.Migrations.Model;
+
 namespace Kickit.Migrations
 {
     using System;
@@ -8,7 +10,7 @@ namespace Kickit.Migrations
         public override void Up()
         {
             CreateTable(
-<<<<<<< HEAD
+
                 "dbo.Invitors",
                 c => new
                     {
@@ -35,8 +37,8 @@ namespace Kickit.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-=======
->>>>>>> parent of 5c4446e... Database Migration
+
+
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -123,11 +125,11 @@ namespace Kickit.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-<<<<<<< HEAD
+
             DropTable("dbo.RecepientForms");
             DropTable("dbo.Invitors");
-=======
->>>>>>> parent of 5c4446e... Database Migration
+
+
         }
     }
 }

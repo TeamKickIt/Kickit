@@ -35,7 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\Student\AppData\Local\Temp\vs9090.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Hemory\AppData\Local\Temp\vsED6A.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,7 +44,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\Student\AppData\Local\Temp\vs9090.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Hemory\AppData\Local\Temp\vsED6A.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -350,6 +350,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610131735536_InitialModel.resx">
       <DependentUpon>201610131735536_InitialModel.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610132352121_AddRecipientFromId.resx">
       <DependentUpon>201610132352121_AddRecipientFromId.cs</DependentUpon>

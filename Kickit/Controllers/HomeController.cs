@@ -120,15 +120,15 @@ namespace Kickit.Controllers
                                 "sandbox90b6af4c9c9f40eaa4ba0073541a6975.mailgun.org", ParameterType.UrlSegment);
             request.Resource = "{domain}/messages";
             request.AddParameter("from", "Mailgun Sandbox <postmaster@sandbox90b6af4c9c9f40eaa4ba0073541a6975.mailgun.org>");
-<<<<<<< HEAD
+
             request.AddParameter("to", "Gaby <teamkickitapp@gmail.com>");// This is receiver mail.can change this mail id after add and activate in mailgun account Receipient mail list 
             request.AddParameter("subject", "Hello Teamkickitapp");
             request.AddParameter("text", $"Hi {invitor.ReceiverName} you are invited by {invitor.FromName} .Click this link  to :http://kickitapp.azurewebsites.net/Home/RecepientForm/?id={invitor.Id}");//This is message sent to receiver
-=======
+
             request.AddParameter("to", "Teamkickitapp <hphife@yahoo.com>");// This is receiver mail.can change this mail id after add and activate in mailgun account Receipient mail list 
             request.AddParameter("subject", "Hello Teamkickitapp");
             request.AddParameter("text", $"Hi {invitor.ReceiverName} you are invited by {invitor.FromName} .Click this link  to : http://localhost:50941/Home/RecepientForm/?Id={invitor.Id}");//This is message sent to receiver
->>>>>>> origin/master
+
             request.Method = Method.POST;
             return client.Execute(request);
         }

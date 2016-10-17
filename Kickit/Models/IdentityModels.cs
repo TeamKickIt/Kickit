@@ -20,12 +20,9 @@ namespace Kickit.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-<<<<<<< HEAD
+
         public DbSet<Invitor> Invitors { get; set; }
         public DbSet<RecepientForm> RecepientForms { get; set; }
-=======
-        public DbSet<Customer> Customers { get; set; }
->>>>>>> parent of 5c4446e... Database Migration
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
