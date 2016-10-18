@@ -86,9 +86,9 @@ namespace Kickit.Controllers
         public ViewResult RecepientForm(InvitorRecepientModel responsemodel)
         {
           //  if (responsemodel.recepientform.DateTime1==null|| responsemodel.recepientform.DateTime1 == null|| responsemodel.recepientform.DateTime1 == null)
-         bool Option1 = responsemodel.recepientform.DateTime1;
-            bool Option2 = responsemodel.recepientform.DateTime2;
-           bool Option3 = responsemodel.recepientform.DateTime3;
+         bool Option1 = responsemodel.recepientform.DateTime;
+            bool Option2 = responsemodel.recepientform.DateTime;
+           bool Option3 = responsemodel.recepientform.DateTime;
            // ViewBag.receiverName = responsemodel.invitor.ReceiverName;
 
             if (Option1 || Option2 || Option3 == true)

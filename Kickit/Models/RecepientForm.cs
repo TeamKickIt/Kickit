@@ -9,10 +9,12 @@ namespace Kickit.Models
     {
         public int Id { get; set; }
 
-        public bool DateTime1 { get; set; }
+        public bool DateTime { get; set; }
 
-        public bool DateTime2 { get; set; }
+        public float Zipcode { get; set; }
 
-        public bool DateTime3 { get; set; }
+        /*public bool DateTime2 { get; set; }
+
+        public bool DateTime3 { get; set; }*/
     }
 }
