@@ -1,16 +1,13 @@
-using System.Data.Entity.Migrations.Model;
-
 namespace Kickit.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialModel : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-
                 "dbo.Invitors",
                 c => new
                     {
@@ -30,15 +27,12 @@ namespace Kickit.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        DateTime1 = c.Boolean(nullable: false),
-                        DateTime2 = c.Boolean(nullable: false),
-                        DateTime3 = c.Boolean(nullable: false),
+                        DateTime = c.Boolean(nullable: false),
+                        Zipcode = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-
-
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -125,11 +119,8 @@ namespace Kickit.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-
             DropTable("dbo.RecepientForms");
             DropTable("dbo.Invitors");
-
-
         }
     }
 }

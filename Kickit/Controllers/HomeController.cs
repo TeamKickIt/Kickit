@@ -86,17 +86,18 @@ namespace Kickit.Controllers
         public ViewResult RecepientForm(InvitorRecepientModel responsemodel)
         {
           //  if (responsemodel.recepientform.DateTime1==null|| responsemodel.recepientform.DateTime1 == null|| responsemodel.recepientform.DateTime1 == null)
-         bool Option1 = responsemodel.recepientform.DateTime;
-            bool Option2 = responsemodel.recepientform.DateTime;
-           bool Option3 = responsemodel.recepientform.DateTime;
+         //bool Option1 = responsemodel.recepientform.DateTime;
+         //   bool Option2 = responsemodel.recepientform.DateTime;
+         //  bool Option3 = responsemodel.recepientform.DateTime;
            // ViewBag.receiverName = responsemodel.invitor.ReceiverName;
 
-            if (Option1 || Option2 || Option3 == true)
+            if (responsemodel.recepientform != null)
+
             //if (ModelState.IsValid)
             {
                 var api = new EventBrite();
-                List<EventBriteEvent> eventlist = api.Search("48026");
-
+                List<EventBriteEvent> eventlist = api.Search(responsemodel.recepientform.Zipcode);
+                
                 return View("EventBriteAPI", eventlist);
             }
             else
@@ -125,9 +126,9 @@ namespace Kickit.Controllers
             request.AddParameter("subject", "Hello Teamkickitapp");
             request.AddParameter("text", $"Hi {invitor.ReceiverName} you are invited by {invitor.FromName} .Click this link  to :http://kickitapp.azurewebsites.net/Home/RecepientForm/?id={invitor.Id}");//This is message sent to receiver
 
-            request.AddParameter("to", "Teamkickitapp <hphife@yahoo.com>");// This is receiver mail.can change this mail id after add and activate in mailgun account Receipient mail list 
-            request.AddParameter("subject", "Hello Teamkickitapp");
-            request.AddParameter("text", $"Hi {invitor.ReceiverName} you are invited by {invitor.FromName} .Click this link  to : http://localhost:50941/Home/RecepientForm/?Id={invitor.Id}");//This is message sent to receiver
+            //request.AddParameter("to", "Teamkickitapp <hphife@yahoo.com>");// This is receiver mail.can change this mail id after add and activate in mailgun account Receipient mail list 
+           // request.AddParameter("subject", "Hello Teamkickitapp");
+            //request.AddParameter("text", $"Hi {invitor.ReceiverName} you are invited by {invitor.FromName} .Click this link  to : http://localhost:50941/Home/RecepientForm/?Id={invitor.Id}");//This is message sent to receiver
 
             request.Method = Method.POST;
             return client.Execute(request);

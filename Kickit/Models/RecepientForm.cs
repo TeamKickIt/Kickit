@@ -11,10 +11,7 @@ namespace Kickit.Models
 
         public bool DateTime { get; set; }
 
-        public float Zipcode { get; set; }
-
-        /*public bool DateTime2 { get; set; }
-
-        public bool DateTime3 { get; set; }*/
+        public string Zipcode { get; set; }
+        
     }
 }
