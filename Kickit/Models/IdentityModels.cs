@@ -20,6 +20,7 @@ namespace Kickit.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
         public DbSet<Invitor> Invitors { get; set; }
         public DbSet<RecepientForm> RecepientForms { get; set; }
 

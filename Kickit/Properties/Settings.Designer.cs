@@ -33,5 +33,16 @@ namespace Kickit.Properties {
                 return ((string)(this["Setting"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=tcp:kickitapp.database.windows.net,1433;Initial Catalog=\"Kickit Datab" +
+            "ase\";Persist Security Info=True;User ID=teamkickit;Password=Grandcircus16")]
+        public string Setting1 {
+            get {
+                return ((string)(this["Setting1"]));
+            }
+        }
     }
 }

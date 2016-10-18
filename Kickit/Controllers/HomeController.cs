@@ -7,6 +7,7 @@ using Kickit.Models;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Kickit.API;
 using RestSharp;
 using RestSharp.Authenticators;
 
@@ -16,7 +17,7 @@ namespace Kickit.Controllers
     {
         public ViewResult Index()
         {
-      
+
             return View();
         }
 
@@ -35,9 +36,9 @@ namespace Kickit.Controllers
             if (ModelState.IsValid)
             {
                 ApplicationDbContext dbContext = new ApplicationDbContext();
-               Invitor invite = dbContext.Invitors.Add(invitor);
+                Invitor invite = dbContext.Invitors.Add(invitor);
                 dbContext.SaveChanges();
-               SendSimpleMessage(invitor);
+                SendSimpleMessage(invitor);
                 return View("Sent", invitor);
             }
             else
@@ -62,16 +63,16 @@ namespace Kickit.Controllers
 
         {
 
-            
+
             ApplicationDbContext dbContext = new ApplicationDbContext();
 
             var invitordetail = dbContext.Invitors.SingleOrDefault(i => i.Id == id);
-           
-           ViewBag.fromName = invitordetail.FromName; //Datas are passed to responseform
-           ViewBag.receiverName = invitordetail.ReceiverName;
-           ViewBag.date1 = invitordetail.DateTime1;
-           ViewBag.date2 = invitordetail.DateTime2;
-           ViewBag.date3 = invitordetail.DateTime3;
+
+            ViewBag.fromName = invitordetail.FromName; //Datas are passed to responseform
+            ViewBag.receiverName = invitordetail.ReceiverName;
+            ViewBag.date1 = invitordetail.DateTime1;
+            ViewBag.date2 = invitordetail.DateTime2;
+            ViewBag.date3 = invitordetail.DateTime3;
 
             //InvitorRecepientModel invitorecipientmodel = new InvitorRecepientModel();
 
@@ -84,21 +85,27 @@ namespace Kickit.Controllers
         [HttpPost]
         public ViewResult RecepientForm(InvitorRecepientModel responsemodel)
         {
-            bool Option1 = responsemodel.recepientform.DateTime1;
+          //  if (responsemodel.recepientform.DateTime1==null|| responsemodel.recepientform.DateTime1 == null|| responsemodel.recepientform.DateTime1 == null)
+         bool Option1 = responsemodel.recepientform.DateTime1;
             bool Option2 = responsemodel.recepientform.DateTime2;
-            bool Option3 = responsemodel.recepientform.DateTime3;
+           bool Option3 = responsemodel.recepientform.DateTime3;
+           // ViewBag.receiverName = responsemodel.invitor.ReceiverName;
 
-            if (Option1||Option2||Option3==true)
+            if (Option1 || Option2 || Option3 == true)
             //if (ModelState.IsValid)
             {
+                var api = new EventBrite();
+                List<EventBriteEvent> eventlist = api.Search("48026");
 
-                return View("Movie", responsemodel);
+                return View("EventBriteAPI", eventlist);
             }
             else
             {
                 return View("Sorry");
             }
         }
+
+
         //Method to call mailgun
 
         public static IRestResponse SendSimpleMessage(Invitor invitor)
@@ -113,11 +120,18 @@ namespace Kickit.Controllers
                                 "sandbox90b6af4c9c9f40eaa4ba0073541a6975.mailgun.org", ParameterType.UrlSegment);
             request.Resource = "{domain}/messages";
             request.AddParameter("from", "Mailgun Sandbox <postmaster@sandbox90b6af4c9c9f40eaa4ba0073541a6975.mailgun.org>");
-            request.AddParameter("to", "Teamkickitapp <teamkickitapp@gmail.com>");// This is receiver mail.can change this mail id after add and activate in mailgun account Receipient mail list 
+
+            request.AddParameter("to", "Gaby <teamkickitapp@gmail.com>");// This is receiver mail.can change this mail id after add and activate in mailgun account Receipient mail list 
             request.AddParameter("subject", "Hello Teamkickitapp");
-            request.AddParameter("text", $"Hi {invitor.ReceiverName} you are invited by {invitor.FromName} .Click this link  to : http://kickitapp.azurewebsites.net/Home/RecepientForm/?Id={invitor.Id}");//This is message sent to receiver
+            request.AddParameter("text", $"Hi {invitor.ReceiverName} you are invited by {invitor.FromName} .Click this link  to :http://kickitapp.azurewebsites.net/Home/RecepientForm/?id={invitor.Id}");//This is message sent to receiver
+
+            request.AddParameter("to", "Teamkickitapp <hphife@yahoo.com>");// This is receiver mail.can change this mail id after add and activate in mailgun account Receipient mail list 
+            request.AddParameter("subject", "Hello Teamkickitapp");
+            request.AddParameter("text", $"Hi {invitor.ReceiverName} you are invited by {invitor.FromName} .Click this link  to : http://localhost:50941/Home/RecepientForm/?Id={invitor.Id}");//This is message sent to receiver
+
             request.Method = Method.POST;
             return client.Execute(request);
         }
+
     }
 }
