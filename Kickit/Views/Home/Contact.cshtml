@@ -8,15 +8,14 @@
 
 <html>
 <head>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+
+    <link href="~/Content/CyborgTheme.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width"/>
-    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css"/>
-    <title>KickIt</title>
+    <title>Making It Happen</title>
 </head>
 <body>
     <div class="panel panel-success">
-        <div class="panel-heading text-center"><h4>KickIt</h4></div>
+        <nav class="panel text-center">KICKiT</nav>
         <div class="panel-body">
             @using (Html.BeginForm())
             {
@@ -24,7 +23,7 @@
                 @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
-                    <h1 class="text-center">Who would you like to KickIt with?</h1>
+                    <h1 class="text-center">MAKE IT HAPPEN</h1>
                     <hr />
                     <div class="form-group">
                         @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
@@ -55,7 +54,7 @@
                         </div>
                     </div>
                     <div>
-                        <p class="text-center">What days and time you are available?(Next week)</p>
+                        <p class="lead text-center">What days and time you are available?(Next week)</p>
                     </div>
                    
                     <div class="form-group">

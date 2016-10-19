@@ -35,7 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\ATHIKU~2\AppData\Local\Temp\vs3C37.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Student\AppData\Local\Temp\vs3E68.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,7 +44,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\ATHIKU~2\AppData\Local\Temp\vs3C37.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Student\AppData\Local\Temp\vs3E68.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201610181759035_Initial.Designer.cs">
       <DependentUpon>201610181759035_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610192051478_ChangeDateTimeToString.cs" />
+    <Compile Include="Migrations\201610192051478_ChangeDateTimeToString.Designer.cs">
+      <DependentUpon>201610192051478_ChangeDateTimeToString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Invitor.cs" />
@@ -232,7 +236,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\LandingPage.css" />
+    <Content Include="Content\CyborgTheme.css" />
     <Content Include="Content\Styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -325,6 +329,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610181759035_Initial.resx">
       <DependentUpon>201610181759035_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610192051478_ChangeDateTimeToString.resx">
+      <DependentUpon>201610192051478_ChangeDateTimeToString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

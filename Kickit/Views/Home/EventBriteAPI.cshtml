@@ -1,14 +1,19 @@
 ﻿@model IEnumerable<Kickit.API.EventBriteEvent>
 
 @{
-    ViewBag.Title = "EventBriteAPI";
+    ViewBag.Title = "Events";
+    Layout = null;
 }
 
-<h2>EventBriteAPI</h2>
+<!DOCTYPE html>
+<head>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <link href="~/Content/CyborgTheme.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Making It Happen</title>
+</head>
+
 <table class="table">
     <tr>
         <th>
@@ -29,29 +34,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventUrl)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                <a href="@item.EventUrl" target="_blank"> @Html.DisplayFor(modelItem => item.EventUrl) </a>
+            </td>
+        </tr>
+    }
 
 </table>
