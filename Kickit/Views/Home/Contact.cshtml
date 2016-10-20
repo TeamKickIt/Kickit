@@ -14,8 +14,8 @@
     <title>Making It Happen</title>
 </head>
 <body>
-    <div class="panel panel-success">
-        <nav class="panel text-center">KICKiT</nav>
+   
+       
         <div class="panel-body">
             @using (Html.BeginForm())
             {
@@ -27,39 +27,39 @@
                     <hr />
                     <div class="form-group">
                         @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
+                        <div class="col-md-offset-3 col-lg-8">
                             @Html.TextBoxFor(m => m.FromName, new { @class = "form-control", @placeholder = "Your Name" })
                             @Html.ValidationMessageFor(m => m.FromName)
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
+                        <div class="col-lg-8">
                             @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", @placeholder = "Your Email" })
                             @Html.ValidationMessageFor(m => m.FromEmail)
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(m => m.ReceiverName, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
+                        <div class="col-lg-8">
                             @Html.TextBoxFor(m => m.ReceiverName, new { @class = "form-control", @placeholder = "First Name" })
                             @Html.ValidationMessageFor(m => m.ReceiverName)
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(m => m.ReceiverEmail, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
+                        <div class="col-lg-8">
                             @Html.TextBoxFor(m => m.ReceiverEmail, new { @class = "form-control", @placeholder = "Their Email" })
                             @Html.ValidationMessageFor(m => m.ReceiverEmail)
                         </div>
                     </div>
                     <div>
-                        <p class="lead text-center">What days and time you are available?(Next week)</p>
+                        <p class="lead text-center">When Can You KICKiT?!</p>
                     </div>
                    
                     <div class="form-group">
                         @Html.LabelFor(m => m.DateTime1, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
+                        <div class="col-lg-8">
                             @Html.TextBoxFor(m => m.DateTime1, new { @class = "form-control", @placeholder = "Example: mm/dd/yy / 5:00pm" })
 
                             @Html.ValidationMessageFor(m => m.DateTime1)
@@ -67,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(m => m.DateTime2, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
+                        <div class="col-lg-8">
                             @Html.TextBoxFor(m => m.DateTime2, new { @class = "form-control", @placeholder = "Example: mm/dd/yy / 5:00pm" })
 
                             @Html.ValidationMessageFor(m => m.DateTime2)
@@ -75,23 +75,22 @@
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(m => m.DateTime3, new { @class = "col-md-2 control-label" })
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.DateTime3, new { @class = "form-control", @placeholder = "Example: mm/dd/yy / 5:00pm"})
+                        <div class="col-lg-8">
+                            @Html.TextBoxFor(m => m.DateTime3, new { @class = "form-control", @placeholder = "Example: mm/dd/yy / 5:00pm" })
 
                             @Html.ValidationMessageFor(m => m.DateTime3)
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10 text-center">
-                            <input type="submit" class="btn btn-danger btn-lg" value="Let's KickIt" />
+                        <div class="col-lg-offset-1 col-md-10 text-center">
+                            <input type="submit" class="btn btn-danger btn-lg" value="LET'S KICKiT" />
                         </div>
                     </div>
 
                 </div>
             }
         </div>
-    </div>
 </body>
 </html>
 

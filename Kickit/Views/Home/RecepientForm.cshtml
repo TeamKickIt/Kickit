@@ -15,33 +15,37 @@
     <link href="~/Content/CyborgTheme.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
 </head>
-
-<h2>title</h2>
 <body>
-    @using (Html.BeginForm())
-
-    {
-        @Html.ValidationSummary()
-        ;
-
-        <p>
-            Hey @ViewBag.fromname @ViewBag.receivername wants to KickIt!
-        </p>
 
 
-        <p>@ViewBag.receivername is available to KickIt on:</p>
-        <p>(Select a time)</p>
+@using (Html.BeginForm())
+
+{
+    @Html.ValidationSummary()
+    ;
+
+    <div class="form-group col-lg-10">
+        Hey @ViewBag.fromname @ViewBag.receivername wants to KickIt!
+    </div>
 
 
+    <div class="form-group col-lg-10">@ViewBag.receivername is available to KickIt on:</div>
 
+    <p>(Select a time)</p>
 
-        <p> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date1") @ViewBag.date1)</p>
-        <p> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date2") @ViewBag.date2)</p>
-        <p> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date3") @ViewBag.date3)</p>
-        <p></p>
-        <p> Zipcode: @Html.TextBoxFor(x => x.recepientform.Zipcode) </p>
+    <div> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date1") @ViewBag.date1)</div>
+    <div> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date2") @ViewBag.date2)</div>
+    <div> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date3") @ViewBag.date3)</div>
 
-    }
+    <div class="form-group col-lg-10">Zipcode: @Html.TextBoxFor(x => x.recepientform.Zipcode)</div>
+
+    <div class="form-group">
+        <div class="col-lg-offset-1 col-md-10 text-center">
+            <input type="submit" class="btn btn-danger btn-lg" value="LET'S' KICKiT'" />
+        </div>
+        </div>
+
+        }
 </body>
 
 </html>
