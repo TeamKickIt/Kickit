@@ -1,5 +1,5 @@
 ﻿
-    @model Kickit.Models.InvitorRecepientModel
+@model Kickit.Models.InvitorRecepientModel
 
 @{
     ViewBag.Title = "RecepientForm";
@@ -8,44 +8,66 @@
 }
 
 <!DOCTYPE html>
-
 <html>
+
 <head>
-
-    <link href="~/Content/CyborgTheme.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+          rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+          rel="stylesheet" type="text/css">
 </head>
+
 <body>
+    <div class="cover">
+        <div class="cover-image" style="background-image : url('https://static.pexels.com/photos/5362/restaurant-hands-people-coffee.jpg')"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <ul>
+                        <li style="display:none"></li>
+                    </ul>
+                </div>
+                <div class="form-group col-lg-12">
+                    <h1 class="text-center text-inverse">Hey @ViewBag.receivername, @ViewBag.fromname wants to KICKiT!</h1>
+                </div>
+                <div class="form-group col-lg-10">
+                    <h2 class="text-center text-inverse">@ViewBag.fromname is available to KICKiT on:</h2>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary()
+                    <center>
+                        <div class="form-group col-lg-10 text-inverse">
+                            <h3>(Select a time)</h3>
+                            <h4> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date1") @ViewBag.date1</h4>
+                            <h4> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date2") @ViewBag.date2</h4>
+                            <h4> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date3") @ViewBag.date3</h4>
+                        </div>
+                        <br>
+                        <div class="form-group col-lg-10">
+                            <h4 class="text-inverse">Zipcode</h4>
+
+                            <div>&nbsp;@Html.TextBoxFor(x => x.recepientform.Zipcode)</div>
 
 
-@using (Html.BeginForm())
+                 
+                       
+                            <div class="text-center">
+                                <br>
+                                <br>
+                                <input type="submit" class="btn btn-danger btn-lg" value="I'M DOWN" />
+                            </div>
+                            </div>
+                            </center>
+                        
+                   
 
-{
-    @Html.ValidationSummary()
-    ;
-
-    <div class="form-group col-lg-10">
-        Hey @ViewBag.fromname @ViewBag.receivername wants to KickIt!
-    </div>
-
-
-    <div class="form-group col-lg-10">@ViewBag.receivername is available to KickIt on:</div>
-
-    <p>(Select a time)</p>
-
-    <div> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date1") @ViewBag.date1)</div>
-    <div> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date2") @ViewBag.date2)</div>
-    <div> @Html.RadioButtonFor(x => x.recepientform.DateTime, "@ViewBag.date3") @ViewBag.date3)</div>
-
-    <div class="form-group col-lg-10">Zipcode: @Html.TextBoxFor(x => x.recepientform.Zipcode)</div>
-
-    <div class="form-group">
-        <div class="col-lg-offset-1 col-md-10 text-center">
-            <input type="submit" class="btn btn-danger btn-lg" value="LET'S' KICKiT'" />
-        </div>
-        </div>
-
-        }
+                }
+          
 </body>
-
 </html>

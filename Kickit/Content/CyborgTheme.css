@@ -1369,7 +1369,15 @@ a.text-warning:focus {
   color: #e6e6e6;
 }
 .text-danger {
-  color: #ffffff;
+    color: #ffffff;
+}
+.event-text {
+   
+    color: whitesmoke     
+  font-size: 22px;
+  font-weight: 350;
+  line-height: 1.4;
+
 }
 a.text-danger:hover,
 a.text-danger:focus {
